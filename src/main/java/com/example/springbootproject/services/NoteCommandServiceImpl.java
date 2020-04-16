@@ -1,6 +1,7 @@
 package com.example.springbootproject.services;
 
 import com.example.springbootproject.dto.NoteCreateDTO;
+import com.example.springbootproject.dto.NoteDeleteDTO;
 import com.example.springbootproject.dto.NoteQueryDTO;
 import com.example.springbootproject.dto.NoteUpdateDTO;
 import com.example.springbootproject.entities.Note;
@@ -9,6 +10,7 @@ import com.example.springbootproject.repositories.NoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.Instant;
 import java.util.UUID;
 
 @Service
@@ -50,15 +52,20 @@ public class NoteCommandServiceImpl implements NoteCommandService {
         }
     }
 
-    public UUID deleteNote(UUID id) {
+    public void deleteNote(UUID id, NoteDeleteDTO noteDeleteDTO) throws Exception {
 
         if (noteRepository.findById(id).isPresent()) {
-            Note existingNote = noteRepository.findById(id).get();
+            Note existingNote1 = noteRepository.findById(id).get();
+            existingNote1.setId(UUID.randomUUID());
+            existingNote1.setDescription(noteDeleteDTO.getDescription());
+            existingNote1.setDate(noteDeleteDTO.getDate());
 
-            Note deletedNote = noteRepository.delete(existingNote);
 
 
+            noteRepository.deleteAllByCreatedDateBefore(Instant.now());
 
-            return null;
+        } else {
+            throw new Exception("note was not found");
         }
+    }
 }

@@ -1,6 +1,8 @@
 package com.example.springbootproject.dto;
 
+import java.time.Instant;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.UUID;
 
 public class NoteQueryDTO {
@@ -13,9 +15,9 @@ public class NoteQueryDTO {
 
     private String description;
 
-    private LocalDate date;
+    private Instant date;
 
-    public NoteQueryDTO(UUID id, String noteIdentityNumber, String title, String description, LocalDate date) {
+    public NoteQueryDTO(UUID id, String noteIdentityNumber, String title, String description, Instant date) {
         this.id = id;
         this.noteIdentityNumber = noteIdentityNumber;
         this.title = title;
@@ -37,6 +39,10 @@ public class NoteQueryDTO {
 
     public String getDescription() {
         return description;
+    }
+
+    public Instant getDate(){
+        return date;
     }
 
     @Override

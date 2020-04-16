@@ -8,6 +8,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Component;
 
+import java.time.Instant;
 import java.time.LocalDate;
 import java.util.UUID;
 
@@ -34,7 +35,7 @@ class DemoCommandLineRunner implements CommandLineRunner {
         english.setNoteIdentityNumber("#1234");
         english.setTitle("English");
         english.setDescription("Learn how to speak English fluently");
-        english.setDate(LocalDate.now());
+        english.setDate(Instant.now());
 
         noteRepository.save(english);
 
@@ -43,7 +44,7 @@ class DemoCommandLineRunner implements CommandLineRunner {
         biology.setNoteIdentityNumber("5678");
         biology.setTitle("Biology");
         biology.setDescription("Learn about DNA");
-        english.setDate(LocalDate.MIN);
+        english.setDate(Instant.MIN);
 
         noteRepository.save(biology);
     }

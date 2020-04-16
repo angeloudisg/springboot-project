@@ -1,12 +1,14 @@
 package com.example.springbootproject.dto;
 
+import java.time.Instant;
 import java.time.LocalDate;
+import java.util.Date;
 
 public class NoteUpdateDTO {
     private String title;
 
     private String description;
-    private LocalDate date;
+    private Instant date;
 
     public String getTitle() {
         return title;
@@ -24,11 +26,11 @@ public class NoteUpdateDTO {
         this.description = description;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(Instant date) {
         this.date = date;
     }
 
-    public LocalDate getDate() {
+    public Instant getDate() {
         return date;
     }
 

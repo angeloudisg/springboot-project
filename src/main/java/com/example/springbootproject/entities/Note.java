@@ -3,7 +3,9 @@ package com.example.springbootproject.entities;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.time.Instant;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.UUID;
 
 @Entity
@@ -19,7 +21,7 @@ public class Note {
 
     private String description;
 
-    private LocalDate date;
+    private Instant date;
 
     private String status;
 
@@ -58,11 +60,11 @@ public class Note {
         this.description = description;
     }
 
-    public LocalDate getDate() {
+    public Instant getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(Instant date) {
         this.date = date;
     }
 

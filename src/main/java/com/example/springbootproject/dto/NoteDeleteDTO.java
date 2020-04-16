@@ -1,14 +1,12 @@
 package com.example.springbootproject.dto;
 
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.time.Instant;
-import java.util.Date;
 
 @Entity
-public class NoteCreateDTO {
+public class NoteDeleteDTO {
     @Id
     @GeneratedValue
     private String noteIdentityNumber;
@@ -18,10 +16,10 @@ public class NoteCreateDTO {
     private String description;
     private Instant date;
 
-    protected NoteCreateDTO() {
+    protected NoteDeleteDTO() {
     }
 
-    public NoteCreateDTO(String title, String description, Instant date) {
+    public NoteDeleteDTO(String title, String description, Instant date) {
         this.title = title;
         this.description = description;
         this.date = date;

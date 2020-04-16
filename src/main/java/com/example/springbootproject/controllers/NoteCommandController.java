@@ -1,6 +1,7 @@
 package com.example.springbootproject.controllers;
 
 import com.example.springbootproject.dto.NoteCreateDTO;
+import com.example.springbootproject.dto.NoteDeleteDTO;
 import com.example.springbootproject.dto.NoteQueryDTO;
 import com.example.springbootproject.dto.NoteUpdateDTO;
 import com.example.springbootproject.services.NoteCommandService;
@@ -28,9 +29,10 @@ public class NoteCommandController {
     @DeleteMapping(value = "{id}")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<UUID> deleteNote(@PathVariable(value = "id") UUID id,
-                                           @RequestBody NoteCreateDTO noteCreateDTO) {
-        return new ResponseEntity<>(noteCommandService.deleteNote(id, noteCreateDTO), HttpStatus.OK);
+                                           @RequestBody NoteDeleteDTO noteDeleteDTO) {
+        return new ResponseEntity<>(noteCommandService.deleteNote(id, noteDeleteDTO), HttpStatus.OK);
     }
+
 
     @PutMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
